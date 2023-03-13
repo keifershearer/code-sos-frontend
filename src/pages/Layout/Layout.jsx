@@ -30,11 +30,11 @@ const Layout = () => {
       <button onClick={handleClick}>Logout</button>
     </li>
     </>
-    ) : (
-      <>
-      <NavLink to="/login">Login</NavLink>
-      <NavLink to="/signup">Signup</NavLink>
-      </>
+    ) : (null
+      // <>
+      // <NavLink to="/login">Login</NavLink>
+      // <NavLink to="/signup">Signup</NavLink>
+      // </>
     )}
   </ul>
 </nav>
