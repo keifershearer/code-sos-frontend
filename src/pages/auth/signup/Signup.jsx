@@ -46,7 +46,7 @@ export default function Signup() {
     try {
       const response = await myApi.post('/auth/signup', userToCreate)
       if (response.status === 201) {
-        navigate('/login')
+        navigate('/auth/login')
       }
     } catch (error) {
       console.log(error)

@@ -27,6 +27,7 @@ function App() {
 
   return (
     <div className="App">
+
       <form onSubmit={handleSubmit}>
         <input
           type="file"
@@ -35,6 +36,7 @@ function App() {
         />
         <input type="submit" value="upload" />
       </form>
+
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
