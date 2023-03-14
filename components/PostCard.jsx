@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom'
 
 
 
-export default function PostCard({ _id, question, code_example, owner }) {
+function PostCard({ _id, question, code_example, owner }) {
 
 
 
     return (
-        <div className='post-card'>
+        <div className='post-card' key={_id}>
 
             <div className='post-card-header'>
                 <img src={owner.profilePic} alt="" />
@@ -24,3 +24,4 @@ export default function PostCard({ _id, question, code_example, owner }) {
         </div>
     )
 }
+export default PostCard
