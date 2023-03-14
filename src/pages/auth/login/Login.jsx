@@ -2,13 +2,13 @@ import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import myApi from '../../../service/service'
 import { AuthContext } from '../../../context/auth.context'
-import axios from 'axios'
 
 
 const login = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
+
   const { storeToken, authenticateUser } = useContext(AuthContext)
 
   const navigate = useNavigate()
@@ -19,8 +19,10 @@ const login = () => {
 
     try {
       const response = await myApi.post('/auth/login', userToLogin)
+
       console.log(response)
       storeToken(response.data.authToken)
+
       await authenticateUser()
       navigate('/')
     } catch (error) {
@@ -30,6 +32,7 @@ const login = () => {
   }
   return (
     <form onSubmit={handleSubmit}>
+    
       <div>
         <label htmlFor='username'>
           Username:
@@ -37,6 +40,7 @@ const login = () => {
             onChange={(event) => setUsername(event.target.value)} />
         </label>
       </div>
+      
       <div>
         <label htmlFor="password">Password:
           <input type='password'
@@ -45,8 +49,10 @@ const login = () => {
             onChange={(event) => setPassword(event.target.value)} />
         </label>
       </div>
+      
       {error.length > 0 && <p classame='error'>{error}</p>}
       <button>Login</button>
+
     </form>
   )
 }

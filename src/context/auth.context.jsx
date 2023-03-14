@@ -38,7 +38,7 @@ function AuthContextWrapper(props) {
                 setIsLoading(false)
             }
         } catch (error) {
-            console.log(error.response.data)
+            console.log(error)
             setUser(null)
             setIsLoading(false)
         }
