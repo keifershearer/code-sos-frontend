@@ -5,7 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import Layout from "./pages/Layout/Layout";
 import Home from "./pages/Home/Home";
 import Signup from "./pages/auth/signup/Signup";
-import Login from "./pages/auth/login/login";
+import Login from "./pages/auth/login/Login";
 import Tutors from "./pages/Tutors/Tutors";
 import Profile from "./pages/Profile/Profile";
 import Posts from "./pages/posts/Posts/Posts";
