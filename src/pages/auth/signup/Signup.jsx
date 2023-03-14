@@ -9,13 +9,12 @@ export default function Signup() {
   // const [password, setPassword] = useState('')
   // const [email, setEmail] = useState('')
   // const [imageFile, setImageFile] = useState('')
-
-  const [{ username, email, password, profilePic, isTutor }, setFormData] = useState({
+  const [isTutor, setTutor] = useState(false)
+  const [{ username, email, password, profilePic }, setFormData] = useState({
     username: '',
     email: '',
     password: '',
     profilePic: '',
-    isTutor: false,
   })
 
   const [error, setError] = useState('')
@@ -23,7 +22,10 @@ export default function Signup() {
 
   // console.log(imageFile)
 
-
+  function handleCheck(e){
+    console.log(e.target.checked)
+    setTutor(e.target.checked)
+  }
 
   function handleChange(e) {
     const updatedState = {
@@ -31,7 +33,6 @@ export default function Signup() {
       email,
       password,
       profilePic,
-      isTutor,
       [e.target.id]: e.target.value,
     }
     setFormData(updatedState)
@@ -43,6 +44,7 @@ export default function Signup() {
 
     const userToCreate = { username, email, password, isTutor }
 
+    console.log('user', userToCreate)
     try {
       const response = await myApi.post('/auth/signup', userToCreate)
       if (response.status === 201) {
@@ -77,7 +79,7 @@ export default function Signup() {
         <input type="text" id='email' value={email} onChange={handleChange} />
 
         <label htmlFor="isTutor">Are you a teacher</label>
-        <input type='checkbox' id='isTutor' value={isTutor} onChange={handleChange} />
+        <input type='checkbox' id='isTutor' checked={isTutor} onChange={handleCheck} />
 
         <input type="file" name="profilePic" id='profilePic' onChange={(e) => setImageFile(e.target.files[0])} />
         <input type="submit" value="upload" />
