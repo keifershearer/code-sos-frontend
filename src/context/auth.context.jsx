@@ -21,22 +21,23 @@ function AuthContextWrapper(props) {
     }
 
     async function authenticateUser() {
-        const currentToken = getToken()
-        setToken(currentToken)
-        console.log(currentToken);
         try {
+            const currentToken = getToken()
+            setToken(currentToken)
+            if (!currentToken) {
+                return setUser(null)
+                setIsLoading(false)
+            }
+            console.log(currentToken);
             const response = await myApi.get('/auth/verify', {
                 headers: {
                     Authorization: `Bearer ${currentToken}`,
                 },
             })
-            if (response.status === 200) {
-                setUser(response.data)
-                setIsLoading(false)
-            } else {
-                setUser(null)
-                setIsLoading(false)
-            }
+
+            setUser(response.data)
+            setIsLoading(false)
+
         } catch (error) {
             console.log(error)
             setUser(null)
