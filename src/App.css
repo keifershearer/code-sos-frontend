@@ -1,14 +1,43 @@
 
-#root {
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-}
+} */
 
 
 header ul {
+ list-style: none;
+  gap: 2rem;
+  margin: 0;
   display: flex;
-  list-style: none;
+  justify-content: space-evenly;
+  width: 100vw;
+}
+nav{
+  width: 100vw;
+  height: 7rem;
+}
+nav button {
+  width:6rem;
+  height: 3rem;
+  font-size: 20px;
+  text-align: center;
+  padding: 0;
+}
+.home-page{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.home-page h1{
+  padding-top: 6rem;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+.home-page-button{
+  display: flex;
+  justify-content: space-between;
   gap: 2rem;
 }

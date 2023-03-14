@@ -27,10 +27,10 @@ function App() {
 
   return (
     <div className="App">
-      <form onSubmit={handleSubmit}>
-        <input type='file' name='image' onChange={(e) => setImageFile(e.target.files[0])} />
-        <input type='submit' value='upload' />
-      </form>
+      {/* <form onSubmit={handleSubmit}>
+       <input type='file' name='image' onChange={(e) => setImageFile(e.target.files[0])} />
+       <input type='submit' value='upload' />
+     </form> */}
       <Routes>
         <Route element={<Layout />} >
           <Route path="/" element={<Home />} />
