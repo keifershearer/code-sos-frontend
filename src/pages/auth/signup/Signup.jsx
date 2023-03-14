@@ -9,12 +9,12 @@ export default function Signup() {
   // const [password, setPassword] = useState('')
   // const [email, setEmail] = useState('')
   // const [imageFile, setImageFile] = useState('')
+  const [imageFile, setImageFile] = useState('')
   const [isTutor, setTutor] = useState(false)
   const [{ username, email, password, profilePic }, setFormData] = useState({
     username: '',
     email: '',
     password: '',
-    profilePic: '',
   })
 
   const [error, setError] = useState('')
@@ -41,12 +41,18 @@ export default function Signup() {
 
   async function handleSubmit(e) {
     e.preventDefault()
+    
+    const fd = new FormData();
+    fd.append('username', username)
+    fd.append('email', email)
+    fd.append('password', password)
+    fd.append('profilePic', imageFile)
+    fd.append('isTutor', isTutor)
+    // const userToCreate = { username, email, password, isTutor }
 
-    const userToCreate = { username, email, password, isTutor }
-
-    console.log('user', userToCreate)
+    // console.log('user', userToCreate)
     try {
-      const response = await myApi.post('/auth/signup', userToCreate)
+      const response = await myApi.post('/auth/signup', fd)
       if (response.status === 201) {
         navigate('/auth/login')
       }
@@ -55,10 +61,9 @@ export default function Signup() {
       // console.log(error.response.data)
       // setError(error.response.data.message)
     }
-    const fd = new FormData();
 
-    const { data: { profilePic } } = await axios.post('http://localhost:5005/images', fd)
-    fd.append("profilePic", profilePic)
+    // const { data: { profilePic } } = await axios.post('http://localhost:5005/images', fd)
+    // fd.append("profilePic", profilePic)
 
 
 
