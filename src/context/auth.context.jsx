@@ -23,6 +23,7 @@ function AuthContextWrapper(props) {
     async function authenticateUser() {
         const currentToken = getToken()
         setToken(currentToken)
+        console.log(currentToken);
         try {
             const response = await myApi.get('/auth/verify', {
                 headers: {
@@ -50,9 +51,7 @@ function AuthContextWrapper(props) {
     // useEffect(authenticateUser, [])
 
     return (
-        <AuthContext.Provider
-            value={{ storeToken, user, authenticateUser, removeToken, isLoading }}
-        >
+        <AuthContext.Provider value={{ storeToken, user, authenticateUser, removeToken, isLoading }}>
             {props.children}
         </AuthContext.Provider>
     )
