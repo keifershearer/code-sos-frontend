@@ -1,50 +1,56 @@
-import { useState } from 'react'
+import { useState } from "react";
 
-import './App.css'
-import { Route, Routes } from 'react-router-dom'
-import Layout from './pages/Layout/Layout'
-import Home from './pages/Home/Home'
-import Signup from './pages/auth/signup/Signup'
-import Login from './pages/auth/login/login'
-import Tutors from './pages/Tutors/Tutors'
-import Profile from './pages/Profile/Profile'
-import Posts from './pages/posts/Posts/Posts'
-
-
-
-
+import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import Layout from "./pages/Layout/Layout";
+import Home from "./pages/Home/Home";
+import Signup from "./pages/auth/signup/Signup";
+import Login from "./pages/auth/login/login";
+import Tutors from "./pages/Tutors/Tutors";
+import Profile from "./pages/Profile/Profile";
+import Posts from "./pages/posts/Posts/Posts";
+import Error from "./pages/error/Error";
+import PostDetails from "./pages/posts/PostDetails/PostDetails";
 
 function App() {
-  const [imageFile, setImageFile] = useState("")
+  const [imageFile, setImageFile] = useState("");
   async function handleSubmit(e) {
     e.preventDefault();
     const fd = new FormData();
     // const image = URL.createObjectURL(imageFile);
-    fd.append("image", imageFile)
-    const { data: { image } } = await axios.post("http://localhost:5005/images", fd)
-    setImageURL(image)
+    fd.append("image", imageFile);
+    const {
+      data: { image },
+    } = await axios.post("http://localhost:5005/images", fd);
+    setImageURL(image);
   }
 
   return (
     <div className="App">
       <form onSubmit={handleSubmit}>
-        <input type='file' name='image' onChange={(e) => setImageFile(e.target.files[0])} />
-        <input type='submit' value='upload' />
+        <input
+          type="file"
+          name="image"
+          onChange={(e) => setImageFile(e.target.files[0])}
+        />
+        <input type="submit" value="upload" />
       </form>
       <Routes>
-        <Route element={<Layout />} >
+        <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/tutors" element={<Tutors />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/posts" element={<Posts />} />
+          <Route path="/posts">
+            <Route index element={<Posts />} />
+            <Route path=":postId" element={<PostDetails />} />
+          </Route>
         </Route>
         <Route path="auth/signup" element={<Signup />} />
         <Route path="auth/login" element={<Login />} />
         <Route path="*" element={<Error />} />
-
       </Routes>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
