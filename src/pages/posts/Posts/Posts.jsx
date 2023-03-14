@@ -19,9 +19,9 @@ const Posts = () => {
     <>
 
       <ul>
-        {posts.map((post) =>
-          <PostCard array={posts} />
-        )}
+        {/* {posts.map((post) =>
+          <PostCard array={post} />
+        )} */}
       </ul>
 
     </>

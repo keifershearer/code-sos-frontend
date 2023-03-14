@@ -6,8 +6,23 @@ const myApi = axios.create({
     baseURL: BACKEND_URL,
 })
 
-myApi.allPost = (post) => {
-    return myApi.get('/posts/')
+myApi.interceptors.request.use(
+    (config) => {
+        const token = localStorage.getItem("token")
+        if (token) {
+            config.headers.Authorization = `Bearer ${token}`;
+        }
+
+        return config;
+    },
+    (error) => {
+        // Do something with request error
+        console.error(error);
+    }
+);
+
+myApi.allPosts = (post) => {
+    return myApi.get('/posts')
 }
 
 myApi.createPost = (post) => {
@@ -15,7 +30,7 @@ myApi.createPost = (post) => {
 }
 
 myApi.getSpecificPost = (postId) => {
-    return myApi.get(`posts/${postId}`)
+    return myApi.get(`/posts/${postId}`)
 }
 
 myApi.updatePost = (postId, post) => {

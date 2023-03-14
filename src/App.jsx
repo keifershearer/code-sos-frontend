@@ -11,6 +11,7 @@ import Profile from "./pages/Profile/Profile";
 import Posts from "./pages/posts/Posts/Posts";
 import Error from "./pages/error/Error";
 import PostDetails from "./pages/posts/PostDetails/PostDetails";
+import axios from "axios";
 
 function App() {
   const [imageFile, setImageFile] = useState("");
@@ -42,11 +43,13 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/tutors" element={<Tutors />} />
           <Route path="/profile" element={<Profile />} />
+
           <Route path="/posts">
             <Route index element={<Posts />} />
             <Route path=":postId" element={<PostDetails />} />
           </Route>
         </Route>
+
         <Route path="auth/signup" element={<Signup />} />
         <Route path="auth/login" element={<Login />} />
         <Route path="*" element={<Error />} />
