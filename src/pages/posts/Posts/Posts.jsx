@@ -16,15 +16,13 @@ const Posts = () => {
 
 
   return (
-    <>
-
-      <ul>
-        {/* {posts.map((post) =>
-          <PostCard array={post} />
-        )} */}
-      </ul>
-
-    </>
+    <div>
+        <ul>
+        {posts.map((post) =>
+          <PostCard key={post._id} question={post.question} code_example={post.code_example} owner={post.owner}/>
+        )}
+        </ul>   
+    </div>
   )
 }
 
