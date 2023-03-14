@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+
 import './App.css'
 import { Route, Routes } from 'react-router-dom'
 import Layout from './pages/Layout/Layout'
@@ -38,8 +38,8 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/posts" element={<Posts />} />
         </Route>
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="auth/signup" element={<Signup />} />
+        <Route path="auth/login" element={<Login />} />
         <Route path="*" element={<Error />} />
 
       </Routes>
