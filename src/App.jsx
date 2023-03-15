@@ -12,7 +12,9 @@ import Posts from "./pages/posts/Posts/Posts";
 import Error from "./pages/error/Error";
 import PostDetails from "./pages/posts/PostDetails/PostDetails";
 import axios from "axios";
-import EditPost from "./pages/posts/EditPost/EditPost";
+
+import Navbar from "./components/Navbar";
+
 
 function App() {
   const [imageFile, setImageFile] = useState("");
@@ -29,7 +31,6 @@ function App() {
 
   return (
     <div className="App">
-
       <form onSubmit={handleSubmit}>
         <input
           type="file"
@@ -39,9 +40,10 @@ function App() {
         <input type="submit" value="upload" />
       </form>
 
+      <Navbar />
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route element={<Layout />}>
-          <Route path="/" element={<Home />} />
           <Route path="/tutors" element={<Tutors />} />
           <Route path="/profile" element={<Profile />} />
 
@@ -52,8 +54,8 @@ function App() {
           </Route>
         </Route>
 
-        <Route path="auth/signup" element={<Signup />} />
-        <Route path="auth/login" element={<Login />} />
+        <Route path="/auth/signup" element={<Signup />} />
+        <Route path="/auth/login" element={<Login />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </div>

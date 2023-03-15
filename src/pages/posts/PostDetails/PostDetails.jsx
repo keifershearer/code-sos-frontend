@@ -6,14 +6,14 @@ const PostDetails = () => {
   const [post, setPost] = useState(null);
   const params = useParams();
   console.log(params);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   useEffect(() => {
     myApi
       .getSpecificPost(params.postId)
       .then((res) => {
         console.log(res.data);
-        setPost(res.data.PostDetails);
+        setPost(res.data);
       })
       .catch((e) => console.error(e));
   }, []);
@@ -24,11 +24,11 @@ const PostDetails = () => {
     } catch (error) {}
   };
 
-  if (!post) {
-    return <div className="loading">Loading...</div>;
-  }
+  // if (!post) {
+  //   return <div className="loading">Loading...</div>;
+  // }
 
-  return <div>PostDetails</div>;
+  return <div></div>;
 };
 
 export default PostDetails;
