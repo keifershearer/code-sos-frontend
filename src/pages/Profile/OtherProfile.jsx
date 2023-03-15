@@ -66,16 +66,6 @@ const OtherProfile = () => {
         )
       })}
 
-      {otherProfile.isTutor &&
-        <section className="help-request-section">
-
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="question">Request help from {otherProfile.username}</label>
-            <input type="text" name="question" id="question" onChange={(e) => setQuestion(e.target.value)} />
-          </form>
-
-        </section>
-      }
     </div>
   )
 }

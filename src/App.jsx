@@ -12,9 +12,10 @@ import Posts from "./pages/posts/Posts/Posts";
 import Error from "./pages/error/Error";
 import PostDetails from "./pages/posts/PostDetails/PostDetails";
 import OtherProfile from "./pages/Profile/OtherProfile"
-import axios from "axios";
 import CreatePost from "./pages/posts/CreatePost/CreatePost";
 import EditPost from "./pages/posts/EditPost/EditPost";
+import HelpRequest from "./pages/Tutors/HelpRequest/HelpRequest";
+import axios from "axios";
 
 import Navbar from "./components/Navbar";
 
@@ -28,11 +29,12 @@ function App() {
         <Route element={<Layout />}>
           <Route path="/tutors" element={<Tutors />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/profile/:profileId" element={<OtherProfile/>}/>
+          <Route path="/profile/:profileId" element={<OtherProfile />} />
+          <Route path="/profile/help/:profileId" element={<HelpRequest />} />
 
           <Route path="/posts">
             <Route index element={<Posts />} />
-            <Route path="create" element={<CreatePost/>}/>
+            <Route path="create" element={<CreatePost />} />
             <Route path=":postId" element={<PostDetails />} />
             <Route path=":postId/edit" element={<EditPost />} />
           </Route>
