@@ -29,8 +29,8 @@ myApi.createPost = (postToCreate) => {
     return myApi.post('/posts/create', postToCreate)
 }
 
-myApi.createComment = (comment) => {
-    return myApi.get(`/posts/${postId}`)
+myApi.createComment = (commentToCreate) => {
+    return myApi.get(`/posts/${postId}`, commentToCreate)
 }
 
 myApi.getSpecificPost = (postId) => {
