@@ -35,7 +35,7 @@ const Tutors = () => {
             <div>
               {/* <p>{question}</p>
                 <p>{code_example}</p> */}
-              <Link to={`/profile/${tutor._id}`}>Contact {tutor.username} for help</Link>
+              <Link to={`/profile/help/${tutor._id}`}>Contact {tutor.username} for help</Link>
             </div>
 
           </div>

@@ -7,31 +7,43 @@ const Profile = () => {
   useEffect(() => {
     myApi
 
-    .myProfile()
-    .then((res) => {
-      const userInfo = res.data.user
-      const myPosts = res.data.myPosts
-      setProfile({...userInfo, myPosts})
-      console.log(myPosts);
-    })
+      .myProfile()
+      .then((res) => {
+        const userInfo = res.data.user
+        const myPosts = res.data.myPosts
+        const helps = res.data.allHelp
+        setProfile({ ...userInfo, myPosts, helps })
+        // console.log('allHelp is ------>', helps);
+      })
       .catch((error) => console.error(error))
-      
-    }, [])
-    
- if(!profile){
-  return<div>Loading...</div>
- } 
+
+  }, [])
+
+  // console.log(profile)
+  if (!profile) {
+    return <div>Loading...</div>
+  }
+
+  if (profile.isTutor) {
+    return profile.helps.map((e) => {
+      return <h1>{e.question}</h1>
+    })
+  }
+
   return (
     <div className='profile-card'>
-    <img src={profile.profilePic}/>
-    <p>{profile.username}</p>
-    <p>{profile._id}</p>
-    <p></p>
-    {profile.myPosts.map((e) => {
-      return(
-        <p key={e._id}>{e.question}</p>
-      )
-    })}
+      <img src={profile.profilePic} />
+      <p>{profile.username}</p>
+      <p>{profile._id}</p>
+
+
+      {profile.myPosts.map((e) => {
+        return (
+          <p key={e._id}>{e.question}</p>
+        )
+
+
+      })}
 
     </div>
   )
