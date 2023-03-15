@@ -12,34 +12,13 @@ import Posts from "./pages/posts/Posts/Posts";
 import Error from "./pages/error/Error";
 import PostDetails from "./pages/posts/PostDetails/PostDetails";
 import axios from "axios";
-
+import EditPost from "./pages/posts/EditPost/EditPost";
 import Navbar from "./components/Navbar";
 
 
 function App() {
-  const [imageFile, setImageFile] = useState("");
-  async function handleSubmit(e) {
-    e.preventDefault();
-    const fd = new FormData();
-    // const image = URL.createObjectURL(imageFile);
-    fd.append("image", imageFile);
-    const {
-      data: { image },
-    } = await axios.post("http://localhost:5005/images", fd);
-    setImageURL(image);
-  }
-
   return (
     <div className="App">
-      <form onSubmit={handleSubmit}>
-        <input
-          type="file"
-          name="image"
-          onChange={(e) => setImageFile(e.target.files[0])}
-        />
-        <input type="submit" value="upload" />
-      </form>
-
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

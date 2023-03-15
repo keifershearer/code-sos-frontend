@@ -2,25 +2,34 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import myApi from '../../service/service'
 
-const Profile = ({profilePic, username}) => {
-  const [profile, setProfile] = useState('')
-  const params = useParams()
-  console.log(params)
-  const profileId = params.profileId
+const Profile = () => {
+  const [profile, setProfile] = useState(null)
+  
+
   useEffect(()=>{
     myApi
-    .otherProfile(profileId)
+    .myProfile()
     .then((res) => {
-      setProfile(res.data)})
+      console.log(res.data)
+      const user = res.data.user
+      const myPosts = res.data.myPosts
+      setProfile({...user, myPosts})})
 
     .catch((error) => console.error(error))
 
   }, [])
- 
+ if(!profile){
+  return<div>Loading...</div>
+ }
   return (
-    <div>
+    <div className='profile-card'>
         <img src={profile.profilePic}/>
         <p>{profile.username}</p>
+        {profile.myPosts.map((e) => {
+          return(
+            <p>{e.question}</p>
+          )
+        })}
 
     </div>
   )
