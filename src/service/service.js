@@ -47,7 +47,7 @@ myApi.availableTutor = (tutor) => {
 }
 
 myApi.myProfile = (user) => {
-    return myApi.get('/profile')
+    return myApi.get(`/profile`)
 }
 
 myApi.otherProfile = (profileId) => {
