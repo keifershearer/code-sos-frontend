@@ -1,8 +1,61 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
+import myApi from '../../../service/service'
 
 const EditPost = () => {
+  const [question, setQuestion] = useState('')
+  const [code_example, setCode_Example] = useState('')
+  const params = useParams()
+  const navigate = useNavigate()
+
+  useEffect(() =>{
+    myApi
+    .getSpecificPost(params.postId)
+    .then((res) => {
+      setQuestion(res.data.question)
+      setCode_Example(res.data.code_example)
+    })
+    .catch((e) => console.error(e))
+
+  }, [])
+  const handleSubmit = async (e) =>{
+    e.preventDefault()
+    const postToUpdate = {question, code_example}
+
+    try {
+      const updatedPost = await myApi.updatePost(params.postId, postToUpdate)
+      if(updatedPost.status === 202){
+        navigate('/post')
+      }
+    } catch (error) {
+      console.error(error)
+    }
+  }
   return (
-    <div>EditPost</div>
+    <form onSubmit={handleSubmit}>
+      <label htmlFor='question'>Question: </label>
+      <div>
+        <textarea
+        value={question}
+        name="question"
+        id="question"
+        cols='30'
+        rows='10'
+        onChange={(e) => setQuestion(e.target.value)}
+        ></textarea>
+      </div>
+      <div>
+        <label htmlFor="codeExample">Code Example: </label>
+        <textarea 
+        value={code_example}
+        name="coeExample"
+         id="codeExample" 
+         cols="30" rows="10"
+          onChange={(e) => setCode_Example(e.target.value)}>
+          </textarea>
+          <button>Update Post</button>
+      </div>
+    </form>
   )
 }
 

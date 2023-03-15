@@ -4,6 +4,7 @@ import App from './App'
 import './index.css'
 import { BrowserRouter} from "react-router-dom"
 import AuthProviderWrapper from './context/auth.context'
+import axios from 'axios'
 
 
 
