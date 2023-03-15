@@ -9,7 +9,6 @@ const myApi = axios.create({
 myApi.interceptors.request.use(
     (config) => {
         const token = localStorage.getItem("token")
-        console.log(token)
         if (token) {
             config.headers.Authorization = `Bearer ${token}`;
         }
@@ -42,11 +41,11 @@ myApi.deletePost = (postId) => {
     return myApi.delete(`/posts/${postId}`)
 }
 
-myApi.availableTutor = (tutor) => {
+myApi.availableTutor = () => {
     return myApi.get('/available-tutors')
 }
 
-myApi.myProfile = (user) => {
+myApi.myProfile = () => {
     return myApi.get(`/profile`)
 }
 

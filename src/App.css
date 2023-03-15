@@ -47,3 +47,12 @@ nav button {
   margin: 1rem;
   color: black;
 }
+.profile-card{
+  width: 600px;
+  display: flex;
+}
+.profile-card img{
+  max-width: 300px;
+  max-height: 300px;
+  border-radius: 100%;
+}
