@@ -4,7 +4,11 @@ import "./Layout.css";
 import { AuthContext } from "../../context/auth.context";
 
 const Layout = () => {
-  const { user } = useContext(AuthContext);
+  const { user, isLoading } = useContext(AuthContext);
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
 
   if (!user) {
     return <Navigate to="/" />;
