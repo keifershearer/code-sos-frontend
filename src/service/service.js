@@ -52,4 +52,8 @@ myApi.myProfile = () => {
 myApi.otherProfile = (profileId) => {
     return myApi.get(`/profile/${profileId}`)
 }
+
+myApi.helpRequest = (profileId, help) => {
+    return myApi.post(`/profile/${profileId}`)
+}
 export default myApi
