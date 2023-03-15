@@ -12,7 +12,7 @@ import Posts from "./pages/posts/Posts/Posts";
 import Error from "./pages/error/Error";
 import PostDetails from "./pages/posts/PostDetails/PostDetails";
 import axios from "axios";
-
+import EditPost from "./pages/posts/EditPost/EditPost"
 import Navbar from "./components/Navbar";
 
 
@@ -50,7 +50,7 @@ function App() {
           <Route path="/posts">
             <Route index element={<Posts />} />
             <Route path=":postId" element={<PostDetails />} />
-            <Route path=":postId/edit" element={<EditPost/>}/>
+            <Route path=":postId/edit" element={<EditPost />} />
           </Route>
         </Route>
 
