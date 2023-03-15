@@ -1,0 +1,41 @@
+.available-tutors {
+    width: 100vw;
+    padding: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+}
+
+.tutor-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+
+    background-color: #1a1a1a;
+    width: 80%;
+    height: 15rem;
+}
+
+.tutor-card-header {
+
+    display: flex;
+    justify-content: left;
+    gap: 4rem;
+
+    width: 100%;
+    height: 4rem;
+}
+
+.tutor-card-header img {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+}
+
+.tutor-description {
+
+}
