@@ -11,6 +11,7 @@ import Profile from "./pages/Profile/Profile";
 import Posts from "./pages/posts/Posts/Posts";
 import Error from "./pages/error/Error";
 import PostDetails from "./pages/posts/PostDetails/PostDetails";
+import OtherProfile from "./pages/Profile/OtherProfile"
 import axios from "axios";
 
 import EditPost from "./pages/posts/EditPost/EditPost";
@@ -27,6 +28,7 @@ function App() {
         <Route element={<Layout />}>
           <Route path="/tutors" element={<Tutors />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/profile/:profileId" element={<OtherProfile/>}/>
 
           <Route path="/posts">
             <Route index element={<Posts />} />
