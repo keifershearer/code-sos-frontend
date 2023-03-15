@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import PostCard from "../../../components/PostCard";
 import myApi from "../../../service/service";
 
@@ -14,6 +15,10 @@ const Posts = () => {
 
   return (
     <div>
+    <div>
+    <Link to='posts/create'><button> + New Post </button></Link>
+    </div>
+      <div>
       <ul>
         {posts.map((post) => (
           <PostCard
@@ -26,6 +31,8 @@ const Posts = () => {
         ))}
       </ul>
     </div>
+    </div>
+
   );
 };
 

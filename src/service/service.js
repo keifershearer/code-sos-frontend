@@ -25,8 +25,8 @@ myApi.allPosts = (post) => {
     return myApi.get('/posts')
 }
 
-myApi.createPost = (post) => {
-    return myApi.post('/posts/create')
+myApi.createPost = (postToCreate) => {
+    return myApi.post('/posts/create', postToCreate)
 }
 
 myApi.getSpecificPost = (postId) => {

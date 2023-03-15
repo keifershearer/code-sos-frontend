@@ -10,10 +10,13 @@ const Profile = () => {
     .then((res) => {
       const userInfo = res.data.user
       const myPosts = res.data.myPosts
-      setProfile({...userInfo, myPosts})})
-    .catch((error) => console.error(error))
-
-  }, [])
+      setProfile({...userInfo, myPosts})
+      console.log(myPosts);
+    })
+      .catch((error) => console.error(error))
+      
+    }, [])
+    
  if(!profile){
   return<div>Loading...</div>
  } 
@@ -25,7 +28,7 @@ const Profile = () => {
     <p></p>
     {profile.myPosts.map((e) => {
       return(
-        <p key-={e._id}>{e.question}</p>
+        <p key={e._id}>{e.question}</p>
       )
     })}
     </div>
