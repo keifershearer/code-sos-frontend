@@ -4,8 +4,9 @@ import myApi from '../../service/service'
 const Profile = () => {
   const [profile, setProfile] = useState(null)
 
-  useEffect(()=>{
+  useEffect(() => {
     myApi
+
     .myProfile()
     .then((res) => {
       const userInfo = res.data.user
@@ -31,6 +32,7 @@ const Profile = () => {
         <p key={e._id}>{e.question}</p>
       )
     })}
+
     </div>
   )
 }

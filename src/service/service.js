@@ -29,6 +29,10 @@ myApi.createPost = (postToCreate) => {
     return myApi.post('/posts/create', postToCreate)
 }
 
+myApi.createComment = (comment) => {
+    return myApi.get(`/posts/${postId}`)
+}
+
 myApi.getSpecificPost = (postId) => {
     return myApi.get(`/posts/${postId}`)
 }
@@ -51,5 +55,9 @@ myApi.myProfile = () => {
 
 myApi.otherProfile = (profileId) => {
     return myApi.get(`/profile/${profileId}`)
+}
+
+myApi.helpRequest = (profileId, help) => {
+    return myApi.post(`/profile/${profileId}`)
 }
 export default myApi
