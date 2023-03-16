@@ -23,7 +23,10 @@
     box-shadow:  .5em .5em 3em  rgba(14, 170, 14, 0.472);
     border-radius: 25px;
 }
-
+.tutor-card button{
+    width: 25rem;
+    margin: 1rem;
+}
 .tutor-card-header {
      display: flex;
     justify-content: left;
@@ -31,6 +34,7 @@
     gap: 2rem;
     background-color: none;
 }
+
 .tutor-profile-pic{
     width: 100px;
     height: 100px;
@@ -38,7 +42,11 @@
     border: 1px solid black;
     box-shadow: .25em .25em 30em rgba(14, 170, 14, 0.472);
 }
-
+.help-link a{
+    text-decoration: none;
+    color: rgb(165, 167, 166);
+    padding: 1rem;
+}
 
 /* .tutor-description {
 

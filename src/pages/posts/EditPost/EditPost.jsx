@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import myApi from '../../../service/service'
+import './EditPost.css'
 
 const EditPost = () => {
   const [question, setQuestion] = useState('')
@@ -33,8 +34,8 @@ const EditPost = () => {
   }
   return (
     <form onSubmit={handleSubmit}>
+      <div className='edit-post'>
       <label htmlFor='question'>Question: </label>
-      <div>
         <textarea
           value={question}
           name="question"
@@ -43,8 +44,6 @@ const EditPost = () => {
           rows='10'
           onChange={(e) => setQuestion(e.target.value)}
         ></textarea>
-      </div>
-      <div>
         <label htmlFor="codeExample">Code Example: </label>
         <textarea
           value={code_example}
@@ -53,7 +52,7 @@ const EditPost = () => {
           cols="30" rows="10"
           onChange={(e) => setCode_Example(e.target.value)}>
         </textarea>
-        <button>Update Post</button>
+        <button className='button'>Update Post</button>
       </div>
     </form>
   )

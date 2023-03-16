@@ -37,7 +37,7 @@ const Tutors = () => {
               <div className='help-link'>
               {/* <p>{question}</p>
                 <p>{code_example}</p> */}
-              <Link to={`/profile/help/${tutor._id}`}>Contact {tutor.username} for help</Link>
+              <Link to={`/profile/help/${tutor._id}`}><button className='button'>Click here to contact {tutor.username} for help</button></Link>
             </div>
 
           </div>) : (null)}
