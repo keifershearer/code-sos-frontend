@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
+import PostCard from '../../components/PostCard'
 import myApi from '../../service/service'
 
 const Profile = () => {
@@ -41,9 +42,15 @@ const Profile = () => {
       <p>{profile._id}</p>
 
 
-      {profile.myPosts.map((e) => {
+      {profile.myPosts.map((post) => {
         return (
-          <p key={e._id}>{e.question}</p>
+          <PostCard
+            key={post._id}
+            _id={post._id}
+            question={post.question}
+            code_example={post.code_example}
+            owner={post.owner}
+          />
         )
 
 
