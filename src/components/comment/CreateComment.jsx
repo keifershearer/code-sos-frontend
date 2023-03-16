@@ -1,23 +1,30 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import myApi from "../../service/service";
 
-const CreateComment = () => {
+
+const CreateComment = ({ fetchPost }) => {
   const [newComment, setNewComment] = useState('')
   const params = useParams()
+  const navigate = useNavigate()
 
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
 
-    console.log(params.postId)
+    // console.log(params.postId)
     try {
-      const response = await myApi.createComment({ newComment }, params.postId);
-
+      const response = await myApi.createComment(newComment, params.postId);
+      console.log(response);
       if (response.status === 201) {
+        fetchPost()
       }
-    } catch (error) { console.log(error) }
+    } catch (error) {
+      // console.log('new comment --->', newComment)
+      // console.log('postId --->', params.postId);
+      console.log(error)
+    }
   };
 
 
