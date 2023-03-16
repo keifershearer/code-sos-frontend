@@ -13,7 +13,7 @@ const Profile = () => {
         const myPosts = res.data.myPosts
         const helps = res.data.allHelp
         setProfile({ ...userInfo, myPosts, helps })
-        // console.log('allHelp is ------>', helps);
+         console.log('allHelp is ------>', helps);
       })
       .catch((error) => console.error(error))
 
@@ -26,7 +26,11 @@ const Profile = () => {
 
   if (profile.isTutor) {
     return profile.helps.map((e) => {
-      return <h1>{e.question}</h1>
+      return <div key={e._id}>
+        <p>{e.owner.username}</p>
+        <p>{e.owner.email}</p>
+        <p>{e.question}</p>
+      </div>
     })
   }
 
