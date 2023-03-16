@@ -25,38 +25,37 @@ const Profile = () => {
     return <div>Loading...</div>
   }
 
-  if (profile.isTutor) {
-    return profile.helps.map((e) => {
-      return <div key={e._id}>
-        <p>{e.owner.username}</p>
-        <p>{e.owner.email}</p>
-        <p>{e.question}</p>
-      </div>
-    })
-  }
-
   return (
     <div>
-    <div className='profile-card'>
-      <img className='profile-pic' src={profile.profilePic} />
+      <div className='profile-card'>
+        <img className='profile-pic' src={profile.profilePic} />
 
-      <p>{profile.username}'s Profile</p>
+        <p>{profile.username}'s Profile</p>
       </div>
 
 
-      {profile.myPosts.map((post) => {
-        return (
-          <PostCard
-            key={post._id}
-            _id={post._id}
-            question={post.question}
-            code_example={post.code_example}
-            owner={post.owner}
-          />
-        )
+      {profile.isTutor ?
+        profile.helps.map((e) => {
+          return <div key={e._id}>
+            <p>{e.owner.username}</p>
+            <p>{e.owner.email}</p>
+            <p>{e.question}</p>
+          </div>
+        })
+        :
+        profile.myPosts.map((post) => {
+          return (
+            <PostCard
+              key={post._id}
+              _id={post._id}
+              question={post.question}
+              code_example={post.code_example}
+              owner={post.owner}
+            />
+          )
 
 
-      })}
+        })}
 
     </div>
   )
