@@ -16,7 +16,7 @@ const CreatePost = () => {
         try {
             const response = await myApi.createPost(postToCreate)
             if (response.status === 201) {
-                navigate('/')
+                navigate('/posts')
             }
         } catch (error) {
             console.error(error)
