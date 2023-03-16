@@ -56,7 +56,7 @@ const OtherProfile = () => {
 
   return (
     <div>
-      <img src={otherProfile.profilePic} />
+      <img className='profile-pic' src={otherProfile.profilePic} />
       <p>{otherProfile.username}</p>
       <p>{otherProfile.profileId}</p>
 
