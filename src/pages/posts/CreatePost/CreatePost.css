@@ -1,0 +1,43 @@
+body{
+    background-color: rgba(7, 7, 7, 0.877);
+
+}
+form{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(10, 11, 10);
+}
+.create-post{
+    background-color: rgb(10, 11, 10);
+    height: 600px;
+    width: 450px;
+    box-shadow:  .5em .5em 3em  rgba(14, 170, 14, 0.472);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    border-radius: 25px;
+}
+.create-post label{
+    font-size: 30px;
+    color:rgba(255, 255, 255, 0.524);
+    text-shadow: rgb(93, 170, 93) 1px 0 20px;
+    margin-top: 1rem;
+}
+.create-post textarea{
+    color:rgba(255, 255, 255, 0.755);
+    background: rgba(7, 7, 7, 0.877);
+    border-color: rgba(14, 170, 14, 0.472);
+    font-size: 15px;
+    margin-left: .5rem;
+}
+.create-post textarea:focus{
+    outline: none;
+}
+.create-post button{
+    margin: 1rem;
+}

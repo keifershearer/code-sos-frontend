@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import PostCard from '../../components/PostCard'
 import myApi from '../../service/service'
-
+import './Profile.css'
 const Profile = () => {
   const [profile, setProfile] = useState(null)
 
@@ -36,9 +36,13 @@ const Profile = () => {
   }
 
   return (
+    <div>
     <div className='profile-card'>
       <img className='profile-pic' src={profile.profilePic} />
-      <p>{profile.username}</p>
+
+      <p>{profile.username}'s Profile</p>
+      </div>
+
 
       {profile.myPosts.map((post) => {
         return (

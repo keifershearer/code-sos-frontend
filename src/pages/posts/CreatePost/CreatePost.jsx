@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import myApi from '../../../service/service'
+import './CreatePost.css'
 
 const CreatePost = () => {
     const navigate = useNavigate()
@@ -25,7 +26,7 @@ const CreatePost = () => {
     }
     return (
         <form onSubmit={handleSubmit}>
-            <div>
+            <div className='create-post'>
                 <label>Question: </label>
                 <textarea value={question}
                     name="question"
@@ -33,17 +34,15 @@ const CreatePost = () => {
                     cols="30"
                     rows="10"
                     onChange={(e) => { setQuestion(e.target.value) }} />
-            </div>
-            <div>
+                <label htmlFor="code_example">Code Example:</label>
                 <textarea value={code_example}
                     name="code_example"
                     id="code_example"
                     cols="30"
                     rows="10"
                     onChange={(e) => { setCode_Example(e.target.value) }} />
-
+            <button className='button'>Submit</button>
             </div>
-            <button>Submit</button>
         </form>
     )
 }
