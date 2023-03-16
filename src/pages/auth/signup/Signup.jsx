@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Navigate, useNavigate } from 'react-router-dom'
 import myApi from './../../../service/service'
-import axios from 'axios'
+import'./Signup.css'
 
 export default function Signup() {
 
@@ -72,25 +72,26 @@ export default function Signup() {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="signup-form">
-
-        <label htmlFor="username">Choose your username </label>
+      <form onSubmit={handleSubmit}>
+        <div className='signup-form'>
+        <label htmlFor="username">Choose your username: </label>
         <input type='text' id='username' value={username} onChange={handleChange} />
 
-        <label htmlFor="password">Enter your password </label>
+        <label htmlFor="password">Enter your password: </label>
         <input type='text' id='password' value={password} onChange={handleChange} />
 
-        <label htmlFor="email">Enter your email</label>
+        <label htmlFor="email">Enter your email: </label>
         <input type="text" id='email' value={email} onChange={handleChange} />
 
-        <label htmlFor="isTutor">Are you a teacher</label>
-        <input type='checkbox' id='isTutor' checked={isTutor} onChange={handleCheck} />
+        <label htmlFor="isTutor">Are you a tutor?</label>
+        <input className='checkbox' type='checkbox' id='isTutor' checked={isTutor} onChange={handleCheck} />
 
+        <label htmlFor="profilePic">Upload Profile Picture: </label>
         <input type="file" name="profilePic" id='profilePic' onChange={(e) => setImageFile(e.target.files[0])} />
-        <input type="submit" value="upload" />
+        {/* <input type="submit" value="upload" /> */}
 
-        <button >Sign up</button>
-
+        <button className='button'>Sign up</button>
+        </div>
       </form>
     </>
   )
