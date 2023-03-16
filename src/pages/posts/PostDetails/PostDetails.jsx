@@ -3,6 +3,7 @@ import { useNavigate, Link, useParams } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../../context/auth.context";
 import myApi from "../../../service/service";
+import CreateComment from "../../../components/comment/CreateComment";
 import './post-details.css'
 
 
@@ -11,6 +12,7 @@ const PostDetails = () => {
   const { user } = useContext(AuthContext)
 
   const [post, setPost] = useState(null);
+  const [comments, setComments] = useState(null)
 
   const params = useParams();
   const navigate = useNavigate()
@@ -22,7 +24,8 @@ const PostDetails = () => {
       .getSpecificPost(params.postId)
       .then((res) => {
         console.log(res.data);
-        setPost(res.data);
+        setPost(res.data.postDetails);
+        setComments(res.data.allComments)
       })
       .catch((e) => console.error(e));
   }, []);
@@ -43,16 +46,23 @@ const PostDetails = () => {
   }
 
   return (
-    <section className="postdetail-section">
+    <section className="postdetail">
 
       <div className="postdetail-header">
         <img src={post.owner.profilePic} alt="profile-pic" />
         <h3>{post.owner.username}</h3>
       </div>
 
-      <div className="postdetail-description">
-        <p>{post.question}</p>
-        <p>{post.code_example}</p>
+      <div className="postdetail-container">
+        <div className="postdetail-description">
+          <p>{post.question}</p>
+          <p>{post.code_example}</p>
+        </div>
+
+        <div className="comments">
+
+          <CreateComment />
+        </div>
 
         {user._id === post.owner._id ? (
           <>
