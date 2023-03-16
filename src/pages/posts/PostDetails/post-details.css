@@ -27,7 +27,25 @@
 .postdetail-description {
     display: flex;
     justify-content: center;
-
     width: 100%;
-    padding: 1rem;
+}
+
+.postdetail-description {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 0;
+    padding: 1rem 0 1rem 0;
+}
+
+
+
+.comment img {
+    width: 2rem;
+    border-radius: 50%;
+}
+
+.author-comment {
+    flex-direction: row;
+    
 }

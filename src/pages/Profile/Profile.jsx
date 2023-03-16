@@ -14,7 +14,7 @@ const Profile = () => {
         const myPosts = res.data.myPosts
         const helps = res.data.allHelp
         setProfile({ ...userInfo, myPosts, helps })
-         console.log('allHelp is ------>', helps);
+        console.log('allHelp is ------>', helps);
       })
       .catch((error) => console.error(error))
 
@@ -39,8 +39,10 @@ const Profile = () => {
     <div>
     <div className='profile-card'>
       <img className='profile-pic' src={profile.profilePic} />
+
       <p>{profile.username}'s Profile</p>
       </div>
+
 
       {profile.myPosts.map((post) => {
         return (

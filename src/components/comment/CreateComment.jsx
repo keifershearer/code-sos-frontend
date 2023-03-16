@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import myApi from "../../service/service";
-
+import './CreateComment.css'
 
 const CreateComment = ({ fetchPost }) => {
   const [newComment, setNewComment] = useState('')
@@ -12,8 +12,6 @@ const CreateComment = ({ fetchPost }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-
-    // console.log(params.postId)
     try {
       const response = await myApi.createComment(newComment, params.postId);
       console.log(response);
@@ -21,17 +19,15 @@ const CreateComment = ({ fetchPost }) => {
         fetchPost()
       }
     } catch (error) {
-      // console.log('new comment --->', newComment)
-      // console.log('postId --->', params.postId);
       console.log(error)
     }
   };
 
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="comment">Your Comment:</label>
-      <div>
+    <form onSubmit={handleSubmit} className='form-comment'>
+      <label htmlFor="comment" className="label-comment">Your Comment:</label>
+      <div className="text-comment">
         <textarea
           value={newComment}
           name="comment"
