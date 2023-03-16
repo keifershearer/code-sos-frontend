@@ -64,8 +64,10 @@ const PostDetails = () => {
           {comments.map((comment) => {
             return (
               <div className="comment" key={comment._id}>
-                <img src={comment.author.profilePic} alt="profile-pic" />
-                <h6>{comment.author.username}</h6>
+                <div className="author-comment">
+                  <img src={comment.author.profilePic} alt="profile-pic" />
+                  <h6>{comment.author.username}</h6>
+                </div>
                 <p>{comment.comment}</p>
               </div>
             )

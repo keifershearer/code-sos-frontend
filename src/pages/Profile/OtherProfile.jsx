@@ -26,33 +26,6 @@ const OtherProfile = () => {
     return <div>Loading...</div>
   }
 
-  // const handleSubmit = async (e) => {
-  //   e.prevent.default()
-
-  //   const newComment = question
-
-  //   myApi.
-  // }
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault()
-
-  //   const newComment = { question, owner }
-
-  //   try {
-  //     const updatedPost = await myApi.updatePost(params.postId, postToUpdate)
-  //     if (updatedPost.status === 202) {
-  //       navigate('/posts')
-  //     }
-  //   } catch (error) {
-  //     console.error(error)
-  //   }
-  // }
-
-
-
-
-
 
   return (
     <div>
