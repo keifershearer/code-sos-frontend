@@ -17,20 +17,21 @@ const PostDetails = () => {
   const params = useParams();
   const navigate = useNavigate()
 
-
-
-  useEffect(() => {
+  const fetchPost = () => {
     myApi
       .getSpecificPost(params.postId)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data.allComments);
         setPost(res.data.postDetails);
         setComments(res.data.allComments)
       })
       .catch((e) => console.error(e));
+  }
+
+  useEffect(() => {
+    fetchPost()
   }, []);
 
-  // console.log('user ----------->', user)
 
   const handleClick = async () => {
     try {
@@ -60,8 +61,16 @@ const PostDetails = () => {
         </div>
 
         <div className="comments">
-
-          <CreateComment />
+          {comments.map((comment) => {
+            return (
+              <div className="comment" key={comment._id}>
+                <img src={comment.author.profilePic} alt="profile-pic" />
+                <h6>{comment.author.username}</h6>
+                <p>{comment.comment}</p>
+              </div>
+            )
+          })}
+          <CreateComment fetchPost={fetchPost} />
         </div>
 
         {user._id === post.owner._id ? (
