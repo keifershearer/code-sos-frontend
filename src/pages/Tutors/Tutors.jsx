@@ -22,7 +22,7 @@ const Tutors = () => {
   return (
 
     <section className='available-tutors'>
-
+      <h1 className='available-tutors-heading'>All Tutors</h1>
       {tutors.map((tutor) => {
         // <PostCard key={tutor._id} question={tutor.question} code_example={tutor.code_example} owner={tutor.owner} />
 
@@ -30,9 +30,11 @@ const Tutors = () => {
           {userID !== tutor._id ? (<div className='tutor-card' >
 
             <div className='tutor-card-header'>
-              <img src={tutor.profilePic} alt="profile-pic" />
-              <h4>{tutor.username}</h4>
 
+              <img className='tutor-profile-pic' src={tutor.profilePic} alt="profile-pic" />
+              <h2>{tutor.username}</h2>
+              </div>
+              <div className='help-link'>
               {/* <p>{question}</p>
                 <p>{code_example}</p> */}
               <Link to={`/profile/help/${tutor._id}`}>Contact {tutor.username} for help</Link>

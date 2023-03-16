@@ -37,7 +37,7 @@ const Profile = () => {
 
   return (
     <div className='profile-card'>
-      <img src={profile.profilePic} />
+      <img className='profile-pic' src={profile.profilePic} />
       <p>{profile.username}</p>
       <p>{profile._id}</p>
 
