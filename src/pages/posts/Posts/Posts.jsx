@@ -16,7 +16,7 @@ const Posts = () => {
   return (
     <div>
     <div>
-    <Link to='posts/create'><button> + New Post </button></Link>
+    <Link to='create'><button> + New Post </button></Link>
     </div>
       <div>
       <ul>
