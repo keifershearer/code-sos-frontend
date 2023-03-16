@@ -10,9 +10,9 @@ function PostCard({ _id, question, code_example, owner }) {
       </div>
 
       <div>
-        <p>{question}</p>
-        <p>{code_example}</p>
-        <Link to={`/posts/${_id}`}>Details</Link>
+        <p>Question: {question}</p>
+        <p>Code Example: {code_example}</p>
+        <Link to={`/posts/${_id}`}><button className='button'>Details</button></Link>
       </div>
     </div>
   );

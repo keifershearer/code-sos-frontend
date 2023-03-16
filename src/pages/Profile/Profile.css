@@ -1,0 +1,33 @@
+.profile-card {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    background-color: rgb(10, 11, 10);
+    width: 100vw;
+    margin-top: 2rem;
+    gap: 1rem;
+    padding: 1rem;
+    color: white
+    box-shadow:  .5em .5em 3em  rgba(14, 170, 14, 0.472);
+    font-size: 25px;
+}
+
+.profile-card-header {
+     display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 2rem;
+    background-color: none;
+}
+.post-card{
+    background-color: rgb(10, 11, 10);
+    box-shadow: inset 2em 2em 2em rgba(0, 128, 0, 0.346);
+    color: rgb(252, 252, 252)
+}
+.profile-pic{
+    width: 100px;
+    height: 100px;
+    border-radius: 120%;
+    border: 1px solid black;
+    box-shadow: .25em .25em 30em rgba(14, 170, 14, 0.472);
+}
