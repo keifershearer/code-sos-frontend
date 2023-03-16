@@ -60,9 +60,15 @@ const OtherProfile = () => {
       <p>{otherProfile.username}</p>
       <p>{otherProfile.profileId}</p>
 
-      {otherProfile.theirPost.map((e) => {
+      {otherProfile.theirPost.map((post) => {
         return (
-          <p key={e._id}>{e.question}</p>
+          <PostCard
+            key={post._id}
+            _id={post._id}
+            question={post.question}
+            code_example={post.code_example}
+            owner={post.owner}
+          />
         )
       })}
 
