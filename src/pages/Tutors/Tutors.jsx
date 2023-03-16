@@ -7,8 +7,8 @@ import { AuthContext } from '../../context/auth.context'
 const Tutors = () => {
 
   const [tutors, setTutors] = useState([])
-  const {user} = useContext(AuthContext)
-const userID = user._id
+  const { user } = useContext(AuthContext)
+  const userID = user._id
   useEffect(() => {
     myApi.availableTutor()
       .then((res) => setTutors(res.data))
@@ -25,24 +25,24 @@ const userID = user._id
 
       {tutors.map((tutor) => {
         // <PostCard key={tutor._id} question={tutor.question} code_example={tutor.code_example} owner={tutor.owner} />
-        
-        return (<div key={tutor._id}>
-          {userID !== tutor._id ? ( <div className='tutor-card' >
 
-<div className='tutor-card-header'>
+        return (<div key={tutor._id}>
+          {userID !== tutor._id ? (<div className='tutor-card' >
+
+            <div className='tutor-card-header'>
               <img src={tutor.profilePic} alt="profile-pic" />
               <h4>{tutor.username}</h4>
-         
+
               {/* <p>{question}</p>
                 <p>{code_example}</p> */}
               <Link to={`/profile/help/${tutor._id}`}>Contact {tutor.username} for help</Link>
             </div>
 
           </div>) : (null)}
-          </div>
+        </div>
 
         )
-              })}
+      })}
     </section>
   )
 }
