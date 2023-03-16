@@ -1,5 +1,5 @@
 import React from "react";
-import myApi from "../service/service";
+import myApi from "../../service/service";
 
 const CreateComment = () => {
   const [comment, setComment] = useState("");
@@ -8,11 +8,11 @@ const CreateComment = () => {
     event.preventDefault();
     const commentToCreate = { comment };
     try {
-      const response = await myApi.createToComment;
+      const response = await myApi.createComment(commentToCreate);
 
-      if (res.status === 201) {
+      if (response.status === 201) {
       }
-    } catch (error) {}
+    } catch (error) { }
   };
   return (
     <form onSubmit={handleSubmit}>
