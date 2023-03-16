@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import myApi from '../../../service/service'
 import { AuthContext } from '../../../context/auth.context'
+import './Login.css'
 
 
 const login = () => {
@@ -31,8 +32,8 @@ const login = () => {
     }
   }
   return (
-    <form onSubmit={handleSubmit}>
-    
+    <form onSubmit={handleSubmit} >
+    <div className='login-form'>
       <div>
         <label htmlFor='username'>
           Username:
@@ -51,8 +52,8 @@ const login = () => {
       </div>
       
       {error.length > 0 && <p classame='error'>{error}</p>}
-      <button>Login</button>
-
+      <button className='button'>Login</button>
+      </div>
     </form>
   )
 }

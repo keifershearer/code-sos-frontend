@@ -4,12 +4,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 3rem; */
     background-color: rgb(10, 11, 10);
+
 }
 .available-tutors-heading{
     color: rgb(165, 167, 166);

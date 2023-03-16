@@ -25,7 +25,7 @@ const Navbar = () => {
                 <NavLink to="/profile">My Profile</NavLink>
               </li>
               <li>
-                <button onClick={handleClick}>Logout</button>
+                <button className='button' onClick={handleClick}>Logout</button>
               </li>
             </>
           ) : (
