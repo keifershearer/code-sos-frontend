@@ -72,7 +72,7 @@ export default function Signup() {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className='signup-form-container'>
         <div className='signup-form'>
         <label htmlFor="username">Choose your username: </label>
         <input type='text' id='username' value={username} onChange={handleChange} />

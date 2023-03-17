@@ -34,7 +34,7 @@ const CreateComment = ({ fetchPost }) => {
           id="comment"
           onChange={(event) => setNewComment(event.target.value)}
         ></textarea>
-        <button>Create a Comment</button>
+        <button className='button' >Create a Comment</button>
       </div>
     </form>
   );
