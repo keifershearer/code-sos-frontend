@@ -33,7 +33,7 @@ const EditPost = () => {
     }
   }
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className='edit-post-form'>
       <div className='edit-post'>
       <label htmlFor='question'>Question: </label>
         <textarea

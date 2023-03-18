@@ -25,7 +25,7 @@ const CreatePost = () => {
 
     }
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className='create-post-form'>
             <div className='create-post'>
                 <label>Question: </label>
                 <textarea value={question}

@@ -51,16 +51,18 @@ const PostDetails = () => {
 
       <div className="postdetail-header">
         <img src={post.owner.profilePic} alt="profile-pic" />
-        <h3>{post.owner.username}</h3>
+        <h3>{post.owner.username}'s Post</h3>
       </div>
 
-      <div className="postdetail-container">
+      {/* <div className="postdetail-container"> */}
         <div className="postdetail-description">
-          <p>{post.question}</p>
-          <p>{post.code_example}</p>
+          <p>Question: {post.question}</p>
+          <p>Code Example: {post.code_example}</p>
         </div>
-
+        
         <div className="comments">
+          <div className='comment-list-form'>
+            <CreateComment fetchPost={fetchPost} />
           {comments.map((comment) => {
             return (
               <div className="comment" key={comment._id}>
@@ -72,15 +74,16 @@ const PostDetails = () => {
               </div>
             )
           })}
-          <CreateComment fetchPost={fetchPost} />
-        </div>
-
+          <div>
+          </div>
+          </div>
         {user._id === post.owner._id ? (
           <>
-            <button onClick={handleClick}>Delete Post</button>
-            <Link to={`/posts/${post._id}/edit`}>Edit post</Link>
+            <button onClick={handleClick} className='button' >Delete Post</button>
+            <Link to={`/posts/${post._id}/edit`}><button className='button' >Edit Post</button></Link>
           </>
         ) : (null)}
+
       </div>
 
     </section>

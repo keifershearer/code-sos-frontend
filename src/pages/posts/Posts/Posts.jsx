@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import PostCard from "../../../components/PostCard";
 import myApi from "../../../service/service";
+import './Post.css'
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
@@ -14,11 +15,12 @@ const Posts = () => {
   }, []);
 
   return (
-    <div>
-    <div>
-    <Link to='create'><button> + New Post </button></Link>
+    <div className='all-post-container'>
+      <h1>All Posts</h1>
+    <div className='all-post-button'>
+    <Link to='create'><button className='button' > + New Post </button></Link>
     </div>
-      <div>
+      <div className='all-post'>
       <ul>
         {posts.map((post) => (
           <PostCard
